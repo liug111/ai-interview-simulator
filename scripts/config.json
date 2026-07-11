@@ -1,0 +1,9 @@
+{
+  "_comment": "AI 面试模拟官 — 配置（默认 Ollama，免费本地）",
+  "base": "http://localhost:11434/v1",
+  "key_env": "LLM_API_KEY",
+  "key": "",
+  "model": "qwen2.5",
+  "temperature": 0.7,
+  "max_tokens": 2048
+}
