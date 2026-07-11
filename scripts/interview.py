@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""AI面试模拟官 - 面试引擎（零依赖，<150行）"""
+"""AI面试模拟官 - 面试引擎（零依赖，<150行）
+
+⚠️ 必须先由用户提供自己的简历(-r)和目标岗位(-j)，AI再基于这些内容出题。
+   没有简历和岗位信息，AI 无法开始面试。
+"""
 import json, os, sys, argparse, urllib.request
 
 MODES = {
@@ -43,8 +47,8 @@ def load_cfg(path):
 def main():
     ap = argparse.ArgumentParser(description="AI面试模拟官 - 面试引擎")
     ap.add_argument("--config", default="config.json")
-    ap.add_argument("--resume", "-r", required=True)
-    ap.add_argument("--jd", "-j", required=True)
+    ap.add_argument("--resume", "-r", required=True, help="(必填) 你的简历文本或文件路径 — AI 据此出题")
+    ap.add_argument("--jd", "-j", required=True, help="(必填) 目标岗位描述文本或文件路径 — AI 据此针对性提问")
     ap.add_argument("--mode", choices=list(MODES.keys()), default="normal")
     ap.add_argument("--log", default="interview_log.json")
     args = ap.parse_args()

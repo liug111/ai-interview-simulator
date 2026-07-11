@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Test temp files (not part of the skill)
+tests/answers.txt
+tests/live_test.py
+tests/batch_test.py
+tests/get_first_question.py
+tests/q1.py
+tests/run_interview.py
+_test_state.json

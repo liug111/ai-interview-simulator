@@ -66,12 +66,45 @@ ai-interview-simulator/
 
 ## 使用
 
+首先准备好你的简历文件和岗位描述文件，然后：
+
 ```bash
-# 第1步：面试
-python scripts/interview.py -r resume.txt -j job.txt --mode normal
+# 第1步：面试（必须提供 -r 简历 和 -j 岗位）
+python scripts/interview.py -r 我的简历.txt -j 目标岗位.txt --mode normal
 
 # 第2步：报告
 python scripts/feedback.py --log interview_log.json -o report.md
+```
+
+⚠️ 两个参数缺一不可：`-r`（简历）和 `-j`（岗位）都是必填的。
+
+### Hermes Agent 对话触发
+
+```
+我想模拟一场 [岗位名称] 的面试。
+
+这是我的简历：
+[粘贴你的简历内容]
+
+这是岗位描述：
+[粘贴岗位要求]
+```
+
+Agent 会先解析你的简历和岗位，再开始面试。
+
+### 示例对话（真正跑起来的样子）
+
+```
+你: 我想模拟一场后端开发的面试，这是我的简历和JD。
+   [粘贴简历]
+   [粘贴JD]
+
+AI 面试官: 你好，我看到你在简历中提到参与了秒杀系统优化……
+            能详细讲讲你们的实现方案吗？
+
+你: 我们用了 Redis + Lua 脚本……
+
+AI 面试官: 能具体说说为什么选择 Lua 而不是事务吗？
 ```
 
 ## 依赖
